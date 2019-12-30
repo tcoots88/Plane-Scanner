@@ -23,13 +23,9 @@ client.on('error', error => console.log(error));
 client.connect();
 
 // get routes AKA middleware
-app.post('/', handleLocationRequest);
+app.get('/locationPacket', handleLocationRequest);
 
-// Error handler function
-const errors = (response, e, location) => {
-    console.error(e);
-    response.status(500).send(`Status 500: not available. You are done son!!!`);
-}
+
 
 // Constructor Functions
 
@@ -57,7 +53,7 @@ function handleLocationRequest(request, response) {
         `https://maps.googleapis.com/maps/api/geocode/json?address=${request.query.data}&key=${process.env.GEOCODE_API_KEY}`
     ).then(result => {
         const place = new Location(request.query.data, result);
-        console.log(place)
+        // console.log(place)
         response.send(place)
     }).catch(err => handleError(err, response))
 }
