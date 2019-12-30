@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/tcoots88/Plane-Scanner/issues"
   },
-  "homepage": "https://github.com/tcoots88/Plane-Scanner#readme"
+  "homepage": "https://github.com/tcoots88/Plane-Scanner#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "pg": "^7.17.0",
+    "superagent": "^5.1.3"
+  }
 }
