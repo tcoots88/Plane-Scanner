@@ -1,3 +1,4 @@
+
 /* the bottom two attributes get rid of the arrows when the input type is number */
 
 /* Chrome, Safari, Edge, Opera */
@@ -10,3 +11,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+
+body {
+  background-color: #3c4245;
+}
+
+header, footer, nav, main {
+  background-color: darkgrey;
+}
+
+nav, main {
+}
+
