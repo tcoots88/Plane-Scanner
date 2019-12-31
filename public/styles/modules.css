@@ -1,3 +1,17 @@
+
+/* the bottom two attributes get rid of the arrows when the input type is number */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
 body {
   background-color: #3c4245;
 }
@@ -8,3 +22,4 @@ header, footer, nav, main {
 
 nav, main {
 }
+

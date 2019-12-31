@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Search By Registration Number</title>
+
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/modules.css" />
+  <link rel="stylesheet" href="/styles/icons.css" />
+</head>
+
+<body>
+
+  <header>
+    <%- include ('../partials/header') %>
+  </header>
+
+  <nav>
+    <%- include ('../partials/nav') %>
+  </nav>
+
+  <main>
+    <h1>Registration Number Search</h1>
+    <div>
+      <h2>Information About Registration Numbers</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque id nibh tortor id aliquet lectus proin nibh. Feugiat scelerisque varius morbi enim nunc faucibus. Est ante in nibh mauris cursus mattis molestie a iaculis. Maecenas sed enim ut sem viverra aliquet. Nulla pharetra diam sit amet nisl. Lacus vestibulum sed arcu non odio euismod lacinia at. Eu augue ut lectus arcu. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Sit amet dictum sit amet justo donec enim diam vulputate.</p>
+    </div>
+    <form action="/results" method="post">
+      <fieldset>
+        <legend>Search by Registration Number</legend>
+        <input type="text" size="8" maxlength="6" name="registration" required autofocus>
+        <input type="hidden" name="searchType" value="registrationURL">
+        <button>Submit</button>
+      </fieldset>
+    </form>
+
+  </main>
+
+  <footer>
+    <%- include ('../partials/footer') %>
+  </footer>
+
+</body>
+
+
+</html>
