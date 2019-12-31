@@ -24,19 +24,22 @@ client.connect();
 
 // get routes AKA middleware
 app.get('/locationPacket', handleLocationRequest);
+// get route for registration number
+app.get('/results', handleRegistrationNumberRequest);
+
+
+app.listen(PORT, () => console.log(`Now we cooking on port ${PORT}`));
 
 
 
 // Constructor Functions
-
-function Aircraft(registration_number, aircraft_type, squawk_code, latitude, longitude, altitude) {
+function Aircraft(registration_number = 'No Record', aircraft_type = 'No Record', squawk_code = 'No Record', latitude = 'No Record', longitude = 'No Record', altitude = 'No Record') {
     this.registration_number = registration_number,
-        this.aircraft_type = aircraft_type,
-        this.squawk_code = squawk_code,
-        this.latitude = latitude,
-        this.longitude = longitude,
-        this.altitude = altitude
-    // console.log('this is ', this)
+    this.aircraft_type = aircraft_type,
+    this.squawk_code = squawk_code,
+    this.latitude = latitude,
+    this.longitude = longitude,
+    this.altitude = altitude
 }
 
 function Location(query, response) {
@@ -60,7 +63,38 @@ function handleLocationRequest(request, response) {
 function handleError(err, response) {
     // console.log(err);
     if (response) response.status(500).send('You are wrong. Merry Christmas');
-
 }
 
-app.listen(PORT, () => console.log(`Now we cooking on port ${PORT}`));
+
+// Route handles REGISTRATION NUMBER requests
+function handleRegistrationNumberRequest(request, response) {
+
+    const bySingleAircraftRegistrationURL = `https://adsbexchange-com1.p.rapidapi.com/registration/N8604K/`;
+
+    superagent.get(bySingleAircraftRegistrationURL)
+        .set('x-rapidapi-host', `adsbexchange-com1.p.rapidapi.com`)
+        .set('x-rapidapi-key', `${process.env.FLIGHT_API_KEY}`)
+        .then(dataFromEndpoint => {
+
+            const aircraftDataFromEndPoint = dataFromEndpoint.body.ac;
+
+            const aircraftArray = aircraftDataFromEndPoint.map(aircraftItem => {
+                const registration_number = aircraftItem.reg;
+                const aircraft_type = aircraftItem.type;
+                const squawk_code = aircraftItem.sqk;
+                const latitude = aircraftItem.lat;
+                const longitude = aircraftItem.lon;
+                const altitude = aircraftItem.alt;
+
+                return new Aircraft(registration_number, aircraft_type, squawk_code, latitude, longitude, altitude);
+            });
+
+            response.render('partials/aircraftData', {aircraftData: aircraftArray});
+        
+
+        }).catch(err => {
+            console.error(err);
+            response.status(500).send('Status 500: Internal Server Error');
+        });
+        
+}
