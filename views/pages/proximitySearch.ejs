@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Search by Distance</title>
+
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/modules.css" />
+  <link rel="stylesheet" href="/styles/icons.css" />
+</head>
+
+<body>
+
+  <!-- <header>
+    <%- include ('../partials/header') %>
+  </header>
+
+  <nav>
+    <%- include ('../partials/nav') %>
+  </nav> -->
+
+  <main>
+    <form action="/results" method="POST" id="proximitySearch">
+    <fieldset>
+
+      <legend>See what is near me</legend>
+      <select name="Radius">
+        <option value="10"> within 10 Miles of</option>
+        <option value="25">within 25 Miles of</option>
+        <option value="100">within 100 Miles of</option>
+        <option value="250">within 250 Miles of</option>
+      </select>
+      <input type="text" name="proximity" placeholder="Enter a location">
+      <input type="hidden" name="searchType" value="proximityUrl">
+      <br>
+      <button type="submit" form="proximityForm" value="Submit">Show me!</button>
+    </fieldset>
+    </form>
+  </main>
+  <!-- <footer>
+    <%- include ('../partials/footer') %>
+  </footer> -->
+
+</body>
+
+
+</html>
