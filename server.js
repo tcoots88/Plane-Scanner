@@ -69,7 +69,7 @@ function handleError(err, response) {
 // Route handles REGISTRATION NUMBER requests
 function handleRegistrationNumberRequest(request, response) {
 
-    const bySingleAircraftRegistrationURL = `https://adsbexchange-com1.p.rapidapi.com/registration/N8604K/`;
+    const bySingleAircraftRegistrationURL = `https://adsbexchange-com1.p.rapidapi.com/registration/N7886A/`;
 
     superagent.get(bySingleAircraftRegistrationURL)
         .set('x-rapidapi-host', `adsbexchange-com1.p.rapidapi.com`)
@@ -88,8 +88,8 @@ function handleRegistrationNumberRequest(request, response) {
 
                 return new Aircraft(registration_number, aircraft_type, squawk_code, latitude, longitude, altitude);
             });
-
-            response.render('partials/aircraftData', {aircraftData: aircraftArray});
+            
+            response.render('pages/results', {aircraftData: aircraftArray});
         
 
         }).catch(err => {
