@@ -1,0 +1,30 @@
+<ul>
+  <% aircraftData.forEach( aircraft => { %>
+  <li class="aircraftListItem">
+
+    <h2>
+      Registration Number: <%= aircraft.registration_number %>
+    </h2>
+
+    <p>
+      Aircraft Type: <%= aircraft.aircraft_type %>
+    </p>
+
+    <p>
+      Squawk Code: <%= aircraft.squawk_code %>
+    </p>
+
+    <p>
+      Latitude: <%= aircraft.latitude %>
+    </p>
+
+    <p>
+      Longitude: <%= aircraft.longitude %>
+    </p>
+
+    <p>
+      Altitude: <%= aircraft.altitude %>
+    </p>
+  </li>
+<% }); %>
+</ul>

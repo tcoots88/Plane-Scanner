@@ -1,0 +1,51 @@
+<span>
+  <form id="SearchAircraftBy">
+    Search By...
+</span>
+<br>
+<br>
+<br>
+<span>
+  <label for="RegNum">Registration Number</label>
+  <input type="radio" class="searchBy" name="searchBy" value="RegNum">
+</span>
+<span>
+  <label for="LocationSearch">Location</label>
+  <input type="radio" class="searchBy" name="searchBy" value="LocationSearch">
+</span>
+<span>
+  <label for="SquawkCode">Squawk Code</label>
+  <input type="radio" class="searchBy" name="searchBy" value="SquawkCode">
+</span>
+</form>
+<form action="/show" method="POST" id="SearchByRegNum">
+  <input type="text" name="SearchByRegNum">
+</form>
+<form action="/show" method="POST" id="SearchByLocationSearch">
+  <input type="text" name="SearchByLocationSearch">
+</form>
+<form action="/show" method="POST" id="SearchBySquawkCode">
+  <input type="number" name="SearchBySquawkCode">
+</form>
+<button>Submit</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(".searchBy").change(function () {
+    console.log($(this).val());
+    const formTarget = ($(this).val());
+    if (formTarget === "RegNum") {
+      $("#SearchByRegNum").css("visibility", "visible");
+      $("#SearchByLocationSearch").css("visibility", "hidden");
+      $("#SearchBySquawkCode").css("visibility", "hidden");
+    } else if (formTarget === "LocationSearch") {
+      $("#SearchByRegNum").css("visibility", "hidden");
+      $("#SearchByLocationSearch").css("visibility", "visible");
+      $("#SearchBySquawkCode").css("visibility", "hidden");
+    } else if (formTarget === "SquawkCode") {
+      $("#SearchByRegNum").css("visibility", "hidden");
+      $("#SearchByLocationSearch").css("visibility", "hidden");
+      $("#SearchBySquawkCode").css("visibility", "visible");
+    }
+  });
+</script>
