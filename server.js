@@ -53,7 +53,7 @@ function Location(query, response) {
 // API call functions
 function handleLocationRequest(request, response) {
     superagent.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${request.query.data}&key=${process.env.GEOCODE_API_KEY}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${request.query.data}&key=${process.env.LOCATION_API_KEY}`
     ).then(result => {
         const place = new Location(request.query.data, result);
         // console.log(place)
@@ -62,7 +62,7 @@ function handleLocationRequest(request, response) {
 }
 function handleError(err, response) {
     // console.log(err);
-    if (response) response.status(500).send('You are wrong. Merry Christmas');
+    if (response) response.status(500).send('hmmm something went wrong, go back and try again');
 }
 
 
