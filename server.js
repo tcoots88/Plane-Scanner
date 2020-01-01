@@ -23,9 +23,14 @@ const client = new pg.Client(process.env.DATABASE_URL);
 client.on('error', error => console.log(error));
 client.connect();
 
-// get routes
+// HOME route
 app.get('/', (req, res) => {
   res.render('./index');
+});
+
+// FAV AIRCRAFT route
+app.get('/favAircraftPage', (req, res) => {
+  res.render('pages/favoriteAircraft');
 });
 
 // REG NUM route
@@ -43,7 +48,19 @@ app.get('/LocationSearchPage', (req, res) => {
   res.render('pages/proximitySearch');
 });
 
+// DISPLAY RESULTS route
 app.get('/results', aircraftRequest);
+
+// ABOUT TRANSPONDERS route
+app.get('/aboutTransponderPage', (req, res) => {
+  res.render('pages/learnAboutTransponders');
+});
+
+// ABOUT DEV TEAM route
+app.get('/aboutDevs', (req, res) => {
+  res.render('pages/learnAboutDevs');
+});
+
 
 
 
