@@ -2,12 +2,12 @@
 <div class="aircraftDataTiles">
 
   <form class="editForm" method="POST" action="/save">
-    <input type="hidden" name="registration" value="<%= aircraft.registration_number%>">
-    <input type="hidden" name="aircraftType" value="<%= aircraft.aircraft_type %>">
-    <input type="hidden" name="squawkCode" value="<%= aircraft.squawk_code %>">
-    <input type="hidden" name="latitude" value="<%= aircraft.latitude %>">
-    <input type="hidden" name="longitude" value="<%= aircraft.longitude %>">
-    <input type="hidden" name="altitude" value="<%= aircraft.altitude %>">
+    <input type="hidden" name="reg" value="<%= aircraft.registration_number%>">
+    <input type="hidden" name="type" value="<%= aircraft.aircraft_type %>">
+    <input type="hidden" name="sqk" value="<%= aircraft.squawk_code %>">
+    <input type="hidden" name="lat" value="<%= aircraft.latitude %>">
+    <input type="hidden" name="lon" value="<%= aircraft.longitude %>">
+    <input type="hidden" name="alt" value="<%= aircraft.altitude %>">
 
     <span class="aircraftTileLabel">Registration Number</span>
     <p><%= aircraft.registration_number %></span></p>
