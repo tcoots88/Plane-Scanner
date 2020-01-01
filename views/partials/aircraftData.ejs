@@ -1,22 +1,34 @@
 <% aircraftData.forEach( aircraft => { %>
 <div class="aircraftDataTiles">
 
-  <span class="aircraftTileLabel">Registration Number</span>
-  <p><%= aircraft.registration_number %></span></p>
+  <form class="editForm" method="POST" action="/save">
+    <input type="hidden" name="registration" value="<%= aircraft.registration_number%>">
+    <input type="hidden" name="aircraftType" value="<%= aircraft.aircraft_type %>">
+    <input type="hidden" name="squawkCode" value="<%= aircraft.squawk_code %>">
+    <input type="hidden" name="latitude" value="<%= aircraft.latitude %>">
+    <input type="hidden" name="longitude" value="<%= aircraft.longitude %>">
+    <input type="hidden" name="altitude" value="<%= aircraft.altitude %>">
 
-  <span class="aircraftTileLabel">Aircraft Type</span>
-  <p><%= aircraft.aircraft_type %></p>
+    <span class="aircraftTileLabel">Registration Number</span>
+    <p><%= aircraft.registration_number %></span></p>
 
-  <span class="aircraftTileLabel">Squawk Code</span> 
-  <p><%= aircraft.squawk_code %></p>
+    <span class="aircraftTileLabel">Aircraft Type</span>
+    <p><%= aircraft.aircraft_type %></p>
 
-  <span class="aircraftTileLabel">Latitude</span> 
-  <p><%= aircraft.latitude %></p>
+    <span class="aircraftTileLabel">Squawk Code</span>
+    <p><%= aircraft.squawk_code %></p>
 
-  <span class="aircraftTileLabel">Longitude</span> 
-  <p><%= aircraft.longitude %></p>
+    <span class="aircraftTileLabel">Latitude</span>
+    <p><%= aircraft.latitude %></p>
 
-  <span class="aircraftTileLabel">Altitude</span> 
-  <p><%= aircraft.altitude %></p>
+    <span class="aircraftTileLabel">Longitude</span>
+    <p><%= aircraft.longitude %></p>
+
+    <span class="aircraftTileLabel">Altitude</span>
+    <p><%= aircraft.altitude %></p>
+
+    <input type="submit" value="SAVE TO MY AIRCRAFT">
+  </form>
+
 </div>
 <% }); %>
