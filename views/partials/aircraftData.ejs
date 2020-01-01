@@ -1,30 +1,22 @@
-<ul>
-  <% aircraftData.forEach( aircraft => { %>
-  <li class="aircraftListItem">
+<% aircraftData.forEach( aircraft => { %>
+<div class="aircraftDataTiles">
 
-    <h2>
-      Registration Number: <%= aircraft.registration_number %>
-    </h2>
+  <span class="aircraftTileLabel">Registration Number</span>
+  <p><%= aircraft.registration_number %></span></p>
 
-    <p>
-      Aircraft Type: <%= aircraft.aircraft_type %>
-    </p>
+  <span class="aircraftTileLabel">Aircraft Type</span>
+  <p><%= aircraft.aircraft_type %></p>
 
-    <p>
-      Squawk Code: <%= aircraft.squawk_code %>
-    </p>
+  <span class="aircraftTileLabel">Squawk Code</span> 
+  <p><%= aircraft.squawk_code %></p>
 
-    <p>
-      Latitude: <%= aircraft.latitude %>
-    </p>
+  <span class="aircraftTileLabel">Latitude</span> 
+  <p><%= aircraft.latitude %></p>
 
-    <p>
-      Longitude: <%= aircraft.longitude %>
-    </p>
+  <span class="aircraftTileLabel">Longitude</span> 
+  <p><%= aircraft.longitude %></p>
 
-    <p>
-      Altitude: <%= aircraft.altitude %>
-    </p>
-  </li>
+  <span class="aircraftTileLabel">Altitude</span> 
+  <p><%= aircraft.altitude %></p>
+</div>
 <% }); %>
-</ul>

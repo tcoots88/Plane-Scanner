@@ -16,9 +16,10 @@ function Aircraft(registration_number = 'No Record', aircraft_type = 'No Record'
 }
 
 function handleAircraftRequest(request, response) {
-    
-    let url;
 
+    let url = 'empty';
+
+    // gets API URL endpoint from user's search type
     switch (request.query.searchType) {
         case "squawkURL":
             url = `https://adsbexchange-com1.p.rapidapi.com/sqk/${request.query.squawk}/`;
@@ -28,33 +29,36 @@ function handleAircraftRequest(request, response) {
             break;
         case "proximityUrl":
             getLocation(request, response);
-            
             break;
     }
 
-    if (url !== undefined) {
+    if (url !== 'empty') {
 
-    superagent.get(url)
-        .set('x-rapidapi-host', `adsbexchange-com1.p.rapidapi.com`)
-        .set('x-rapidapi-key', `${process.env.FLIGHT_API_KEY}`)
-        .then(dataFromEndpoint => {
+        superagent.get(url)
+            .set('x-rapidapi-host', `adsbexchange-com1.p.rapidapi.com`)
+            .set('x-rapidapi-key', `${process.env.FLIGHT_API_KEY}`)
+            .then(dataFromEndpoint => {
 
-            if (dataFromEndpoint.body.ac === null) {
-                response.render('pages/noResults', {})
-            }
+                // if aircraft data is empty, show a no results page
+                if (dataFromEndpoint.body.ac === null) {
+                    response.render('pages/noResults', {})
+                } else {
 
-            const aircraftDataFromEndPoint = dataFromEndpoint.body.ac;
-            const aircraftArray = aircraftDataFromEndPoint.map(aircraftItem => {
-                const registration_number = aircraftItem.reg;
-                const aircraft_type = aircraftItem.type;
-                const squawk_code = aircraftItem.sqk;
-                const latitude = aircraftItem.lat;
-                const longitude = aircraftItem.lon;
-                const altitude = aircraftItem.alt;
-                return new Aircraft(registration_number, aircraft_type, squawk_code, latitude, longitude, altitude);
-            });
-            response.render('pages/results', { aircraftData: aircraftArray });
-        }).catch(err => handleError(err, response));
+                    const aircraftDataFromEndPoint = dataFromEndpoint.body.ac;
+                    const aircraftArray = aircraftDataFromEndPoint.map(aircraftItem => {
+                        const registration_number = aircraftItem.reg;
+                        const aircraft_type = aircraftItem.type;
+                        const squawk_code = aircraftItem.sqk;
+                        const latitude = aircraftItem.lat;
+                        const longitude = aircraftItem.lon;
+                        const altitude = aircraftItem.alt;
+                        return new Aircraft(registration_number, aircraft_type, squawk_code, latitude, longitude, altitude);
+                    });
+
+                    response.render('pages/results', { aircraftData: aircraftArray });
+                }
+
+            }).catch(err => handleError(err, response));
     }
 }
 exports.handleAircraftRequest = handleAircraftRequest;
