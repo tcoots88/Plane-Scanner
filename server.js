@@ -2,10 +2,11 @@
 
 // global dependencies 
 const express = require('express');
-const ejs = require('ejs');
-const superagent = require('superagent');
-const $ = require('jquery')
 // const methodoverride = require('method-override');
+
+// local dependencies
+const locationRequest = require('./public/modules/location').handleLocationRequest;
+const aircraftRequest = require('./public/modules/aircraft').handleAircraftRequest;
 
 require('dotenv').config();
 const PORT = process.env.PORT;
@@ -22,9 +23,28 @@ const client = new pg.Client(process.env.DATABASE_URL);
 client.on('error', error => console.log(error));
 client.connect();
 
-// get routes 
-app.get('/locationPacket', handleLocationRequest);
-app.get('/results', handleAircraftRequest);
+// get routes
+app.get('/', (req, res) => {
+  res.render('./index');
+});
+
+// REG NUM route
+app.get('/regNumSearchPage', (req, res) => {
+  res.render('pages/RegNumSearch');
+});
+
+// SQUAWK CODE route
+app.get('/squawkSearchPage', (req, res) => {
+  res.render('pages/SquawkSearch');
+});
+
+// LOCATION route
+app.get('/LocationSearchPage', (req, res) => {
+  res.render('pages/proximitySearch');
+});
+
+app.get('/results', aircraftRequest);
+
 
 
 app.listen(PORT, () => console.log(`Now we cooking on port ${PORT}`));
