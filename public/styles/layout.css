@@ -81,20 +81,22 @@ footer {
     width: auto;
     grid-column: 1;
     grid-row: 2;
-    height: 98%;
+    height: 60vh;
   }
 
   main {
     width: auto;
     grid-column: 2;
     grid-row: 2;
-    height: 98%
+    height: 60vh;
+    
   }
 
   footer {
     width: auto;
     grid-column: span 2;
     grid-row: 3;
+    height: 8vh;
   }
 
 
