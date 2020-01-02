@@ -42,7 +42,6 @@ body {
   margin: 4px 2px;
   border-radius: 10px;
   cursor: pointer;
-  
 }
 .button:hover {
   background-color: rgb(120, 134, 212);
@@ -69,18 +68,27 @@ h1 {
    font-size: larger;
  }
 
-/* header {
-  background-image: url('../images/headerBackground.png');
+header {
+  background-image: url('../images/image(3).png');
   background-repeat: no-repeat;
   background-size:100% 100%;
-} */
+}
+
+footer{
+  background-image: url('../images/image(4).png');
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  opacity: .6;
+}
+
 
 #copyright {
   font-family: 'Lexend Exa', sans-serif;
   text-transform: uppercase;
-  background: linear-gradient(to right, rgb(240, 229, 180) 0%, blue 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-left: 25%;
+  /* background: linear-gradient(to right, rgb(240, 229, 180) 0%, blue 100%); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
   }
 
 /* MOBILE VIEW */
