@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/styles/modules.css" />
 	<link rel="stylesheet" href="/styles/icons.css" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lalezar&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -26,8 +27,7 @@
 	</nav>
 
 	<main>
-		FAV AIRCRAFT PAGE
-		<div id="resultPageAircraftData">
+		<div id="favPageAircraftData">
 			<% aircrafts.forEach( aircraft => { %>
 			<div class="aircraftDataTiles">
 				<span class="aircraftTileLabel">Registration Number</span>
@@ -39,6 +39,12 @@
 				<form method="POST" action="/delete?_method=DELETE">
 					<input type="hidden" name="aircraftToDelete" value="<%= aircraft.id %>">
 					<button class="button">Delete Aircraft</button>
+				</form>
+
+				<form method="GET" action="/results">
+					<input type="hidden" name="searchType" value="registrationURL">
+					<input type="hidden" name="registration" value="<%= aircraft.registration_number%>">
+					<button class="Button"> View If I am Flying</button>
 				</form>
 
 			</div>
