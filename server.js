@@ -65,15 +65,13 @@ app.get('/aboutDevs', (req, res) => {
   res.render('pages/learnAboutDevs');
 });
 
-
-
-
 function retrieveAircraftFromDatabase(request, response) {
 
   client.query(`SELECT * FROM aircrafts;`).then(savedAircraft => {
     response.render('pages/favoriteAircraft', { aircrafts: savedAircraft.rows });
   }).catch(err => handleError(err, response));
 }
+
 
 function saveAircraftToDatabase(request, response) {
   var instruction = `INSERT INTO aircrafts(
