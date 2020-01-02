@@ -94,7 +94,6 @@ footer{
 /* MOBILE VIEW */
 
 /* NAV BAR */
-
 nav {
   display: flex;
   flex-direction: row;
@@ -124,6 +123,15 @@ nav a {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+/* ABOUT XPNDR PAGE - Mobile */
+.aboutTPImages {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  padding: 2%;
 }
 
 
@@ -167,5 +175,16 @@ nav a {
     background-color: black;
   }  
   /* END NAV BAR */
+
+
+  /* ABOUT XPNDR PAGE - DESKTOP */
+  .aboutTPImages {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 2%;
+  }
+  
 }
 

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,25 +12,43 @@
   <link rel="stylesheet" href="../../public/styles/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Audiowide|Ibarra+Real+Nova&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
 </head>
- 
+
 <body>
 
-  <header>
-    <%- include ('../partials/header') %>
-  </header>
+	<header>
+		<%- include ('../partials/header') %>
+	</header>
 
-  <nav>
-    <%- include ('../partials/nav') %>
-  </nav>
+	<nav>
+		<%- include ('../partials/nav') %>
+	</nav>
 
-  <main>
-    FAV AIRCRAFT PAGE
-  </main>
+	<main>
+		FAV AIRCRAFT PAGE
+		<div id="resultPageAircraftData">
+			<% aircrafts.forEach( aircraft => { %>
+			<div class="aircraftDataTiles">
+				<span class="aircraftTileLabel">Registration Number</span>
+				<p><%= aircraft.registration_number %></span></p>
+				<span class="aircraftTileLabel">Aircraft Type</span>
+				<p><%= aircraft.aircraft_type %></p>
 
-  <footer>
-    <%- include ('../partials/footer') %>
-  </footer>
+
+				<form method="POST" action="/delete?_method=DELETE">
+					<input type="hidden" name="aircraftToDelete" value="<%= aircraft.id %>">
+					<button class="button">Delete Aircraft</button>
+				</form>
+
+			</div>
+			<% }); %>
+		</div>
+	</main>
+
+	<footer>
+		<%- include ('../partials/footer') %>
+	</footer>
 
 </body>
 

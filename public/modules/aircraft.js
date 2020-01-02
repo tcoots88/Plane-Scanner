@@ -6,14 +6,41 @@ function handleError(err, response) {
     if (response) response.status(500).send('You are wrong. Merry Christmas');
 }
 
-function Aircraft(registration_number = 'No Record', aircraft_type = 'No Record', squawk_code = 'No Record', latitude = 'No Record', longitude = 'No Record', altitude = 'No Record') {
-    this.registration_number = registration_number,
-        this.aircraft_type = aircraft_type,
-        this.squawk_code = squawk_code,
-        this.latitude = latitude,
-        this.longitude = longitude,
-        this.altitude = altitude
+function Aircraft(registration_number, aircraft_type, squawk_code, latitude, longitude, altitude) {
+
+    this.registration_number = validateAircraftStringInput(registration_number),
+    this.aircraft_type = validateAircraftStringInput(aircraft_type),
+    this.squawk_code = validateAircraftIntegerInput(squawk_code),
+    this.latitude = validateAircraftFloatInput(latitude),
+    this.longitude = validateAircraftFloatInput(longitude),
+    this.altitude = validateAircraftIntegerInput(altitude)
 }
+
+function validateAircraftStringInput(value) {
+    
+    if (value === '') {
+        return 'NO DATA';
+    } else {
+        return value;
+    }
+}
+
+function validateAircraftIntegerInput(value) {
+    
+    if (value === '') {
+        return 12345;
+    } else {
+        return value;
+    }
+}
+
+function validateAircraftFloatInput(value) {
+    
+    if (value === '') {
+        return 12345.12345;
+    } return value;
+}
+
 
 function handleAircraftRequest(request, response) {
 

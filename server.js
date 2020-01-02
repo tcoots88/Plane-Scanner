@@ -2,7 +2,7 @@
 
 // global dependencies 
 const express = require('express');
-// const methodoverride = require('method-override');
+const methodoverride = require('method-override');
 
 // local dependencies
 const locationRequest = require('./public/modules/location').handleLocationRequest;
@@ -28,10 +28,7 @@ app.get('/', (req, res) => {
   res.render('./index');
 });
 
-// FAV AIRCRAFT route
-app.get('/favAircraftPage', (req, res) => {
-  res.render('pages/favoriteAircraft');
-});
+
 
 // REG NUM route
 app.get('/regNumSearchPage', (req, res) => {
@@ -52,6 +49,10 @@ app.get('/LocationSearchPage', (req, res) => {
 app.get('/results', aircraftRequest);
 app.post('/save', saveAircraftToDatabase);
 app.post('/delete', deleteAircraft);
+
+// favAircraftPage
+// FAV AIRCRAFT route
+app.get('/favAircraftPage', retrieveAircraftFromDatabase);
 app.post('/retrieve', retrieveAircraftFromDatabase);
 
 // ABOUT TRANSPONDERS route
@@ -70,37 +71,27 @@ app.get('/aboutDevs', (req, res) => {
 function retrieveAircraftFromDatabase(request, response) {
 
   client.query(`SELECT * FROM aircrafts;`).then(savedAircraft => {
-    console.log("saved aircraft is " + savedAircraft);
-    response.render('pages/results', { aircrafts: savedAircraft.rows });
+    response.render('pages/favoriteAircraft', { aircrafts: savedAircraft.rows });
   }).catch(err => handleError(err, response));
 }
 
-function saveAircraftToDatabase (response, request){
-var instruction = `INSERT INTO aircrafts(
+function saveAircraftToDatabase(request, response) {
+  var instruction = `INSERT INTO aircrafts(
   registration_number, aircraft_type, squawk_code, latitude, longitude, altitude
   ) VALUES (
     $1, $2, $3, $4, $5, $6
     )`;
+  // console.log('request.body isis', request.body.reg)
   client.query(instruction, [request.body.reg, request.body.type, request.body.sqk, request.body.lat, request.body.lon, request.body.alt]);
-    request.render('pages/favoriteAircraft')
+  response.redirect('/results')
 }
-// showAircraftFromDatabase;
 
 
-// function updateAircraft(request, respond) {
-//   const instruction = `UPDATE aircrafts SET registration_number=$1, aircraft_type=$2, squawk_code=$3, latitude=$4, longitude=$5, altitude=$6 WHERE id=$7`;
-
-//   let values = [request.body.reg, request.body.type, request.body.sqk, request.body.lat, request.body.lon, request.body.alt, request.params.id];
-
-//   client.query(instruction, values).then(() => {
-//     respond.redirect(`/detail/${request.params.id}`);
-//   })
-// }
-
-function deleteAircraft (request, respond){
-  client.query('DELETE FROM aircrafts WHERE id=$1', [req.params.id]).then(data => {
-    respond.redirect('/');
-}).catch(err => errorHandler(err, response));}
+function deleteAircraft(request, respond) {
+  client.query('DELETE FROM aircrafts WHERE id=$1', [request.body.aircraftToDelete]).then(data => {
+    respond.redirect('/favAircraftPage');
+  }).catch(err => errorHandler(err, response));
+}
 
 function handleError(err, response) {
   console.log(err);
@@ -108,4 +99,7 @@ function handleError(err, response) {
 }
 
 app.listen(PORT, () => console.log(`Now we cooking on port ${PORT}`));
+
+
+
 
