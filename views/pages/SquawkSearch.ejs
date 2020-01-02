@@ -7,13 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Search By Squawk</title>
 
-  <link rel="stylesheet" href="/styles/reset.css" />
-  <link rel="stylesheet" href="/styles/base.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/modules.css" />
-  <link rel="stylesheet" href="../../public/styles/modules.css" />
-  <link rel="stylesheet" href="/styles/icons.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <link rel="stylesheet" href="../../public/styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Ibarra+Real+Nova&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
@@ -28,9 +24,10 @@
 
   <main>
     <h1>Squawk Search</h1>
+    <br>
     <div>
-      <h2>Information About Squawks
-      </h2>
+      <h2>Information About Squawks</h2>
+      <br>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Pellentesque id nibh tortor id aliquet lectus proin nibh. Feugiat scelerisque varius morbi enim
         nunc faucibus. Est ante in nibh mauris cursus mattis molestie a iaculis. Maecenas sed enim ut sem viverra
@@ -38,13 +35,17 @@
         lectus arcu. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Sit amet dictum sit amet justo donec
         enim diam vulputate.</p>
     </div>
+    <br>
+    <br>
     <form action="/results" method="GET">
       <fieldset>
         <legend>Search by Squawk</legend>
+        <br>
         <input type="number" min="0" max="7777" size="6" name="squawk" required autofocus>
         <input type="hidden" name="searchType" value="squawkURL">
         <br>
-        <button>Submit</button>
+        <br>
+        <button class="button">Submit</button>
       </fieldset>
     </form>
   </main>

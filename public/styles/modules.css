@@ -13,14 +13,83 @@ input[type=number] {
 }
 
 body {
-  background-color: #3c4245;
+  background: linear-gradient(-45deg, blue, white, yellow);
+  background-size: 200% 200%;
+  animation: gradientBG 7s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.button {
+  background-color: rgb(120, 134, 212);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(120, 134, 212);
+}
+.button:active {
+  background-color: rgb(120, 134, 212);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 header, footer, nav, main {
-  background-color: darkgrey;
+  background-color: #858585;
+  border-radius: 10px;
+  padding: 1em;
+  opacity: .95;
+
+}
+
+form {
+  font-family: 'Audiowide', cursive;
+}
+
+h1 {
+   font-size: larger;
+ }
+
+header {
+  background-image: url('../images/image(3).png');
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+}
+
+footer{
+  background-image: url('../images/image(4).png');
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  opacity: .6;
 }
 
 
+#copyright {
+  font-family: 'Lexend Exa', sans-serif;
+  text-transform: uppercase;
+  margin-left: 25%;
+  /* background: linear-gradient(to right, rgb(240, 229, 180) 0%, blue 100%); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  }
 
 /* MOBILE VIEW */
 
@@ -47,10 +116,10 @@ nav h2 {
 nav p {
   font-size: 14px;
   padding: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 nav a {
-  background-color: #3c4245;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
@@ -94,8 +163,6 @@ nav a {
   }
 
   nav a {
-    background-color: #3c4245;
-    color: white;
     text-decoration: none;
     text-transform: uppercase;
   }

@@ -16,19 +16,21 @@ header {
 
 nav {
   width: 100%;
-  height: 15vh;
+  height: 32vh;
 }
+
 
 main {
   width: 100%;
-  height: 60vh;
-  overflow: scroll;
+  height: 150vh;
+
 }
 
 footer {
   width: 100%;
-  height: 10vh;
+  height: 27vh;
 }
+
 
 /* RESULTS PAGE - MOBILE */
 #resultPageAircraftData {
@@ -86,7 +88,7 @@ footer {
     width: auto;
     grid-column: 2;
     grid-row: 2;
-    overflow: scroll;
+    height: 98%
   }
 
   footer {
