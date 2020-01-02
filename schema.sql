@@ -5,10 +5,11 @@ CREATE TABLE aircrafts
     registration_number VARCHAR(255),
     aircraft_type VARCHAR(255),
     squawk_code INTEGER,   
-    latitude DECIMAL (6, 2),
-    longitude DECIMAL (6, 2),
+    latitude FLOAT(40),
+    longitude FLOAT(40),
     altitude SMALLINT
-)
+);
+
 INSERT INTO aircrafts
 VALUES
 (
