@@ -5,8 +5,8 @@ const express = require('express');
 const methodoverride = require('method-override');
 
 // local dependencies
-const locationRequest = require('./public/modules/location').handleLocationRequest;
-const aircraftRequest = require('./public/modules/aircraft').handleAircraftRequest;
+const locationRequest = require('./public/modules/location');
+const aircraftRequest = require('./public/modules/aircraft');
 
 require('dotenv').config();
 const PORT = process.env.PORT;
@@ -81,7 +81,7 @@ function saveAircraftToDatabase(request, response) {
     )`;
   // console.log('request.body isis', request.body.reg)
   client.query(instruction, [request.body.reg, request.body.type, request.body.sqk, request.body.lat, request.body.lon, request.body.alt]);
-  response.redirect('/results')
+  response.redirect('/favAircraftPage')
 }
 
 
