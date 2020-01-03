@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Search by Distance</title>
 
-  
+
   <link rel="stylesheet" href="/styles/styles.css" />
   <link rel="stylesheet" href="../../public/styles/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Audiowide|Ibarra+Real+Nova&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Ibarra+Real+Nova&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,27 +23,33 @@
     <%- include ('../partials/nav') %>
   </nav>
 
-  <main>
-    <form action="/results" method="GET" id="proximitySearch">
-    <fieldset>
+  <main id="proximity">
 
-      <legend>See what is near me</legend>
-      <select name="radius">
-        <option value="10"> within 10 Miles of</option>
-        <option value="25">within 25 Miles of</option>
-        <option value="100">within 100 Miles of</option>
-        <option value="250">within 250 Miles of</option>
-      </select>
-      <input type="text" name="proximity" placeholder="Enter a location">
-      <input type="hidden" name="searchType" value="proximityUrl">
-      <br>
-      <button class="button">Submit</button>
-    </fieldset>
+    <h2>Search by Location</h2>
+
+    <p>Enter a city name and radius (in nautical miles) to see what is flying around.  All aircraft flying above will transmit you data about their flight.</p>
+
+
+    <form action="/results" method="GET" id="proximitySearch">
+      <fieldset>
+
+        <legend>See what is near me</legend>
+        <select name="radius">
+          <option value="10"> within 10 Miles of</option>
+          <option value="25">within 25 Miles of</option>
+          <option value="100">within 100 Miles of</option>
+          <option value="250">within 250 Miles of</option>
+        </select>
+        <input type="text" name="proximity" placeholder="Enter a location">
+        <input type="hidden" name="searchType" value="proximityUrl">
+        <br>
+        <button class="button">Submit</button>
+      </fieldset>
     </form>
   </main>
-   <footer>
+  <footer>
     <%- include ('../partials/footer') %>
-  </footer> 
+  </footer>
 
 </body>
 

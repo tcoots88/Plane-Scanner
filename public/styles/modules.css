@@ -178,6 +178,63 @@ nav a {
   margin: 10px;
 }
 
+#regNumber {
+  overflow: scroll;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#regNumber h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-decoration-line: underline;
+}
+
+#regNumber p {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#proximity {
+  overflow: scroll;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#proximity h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-decoration-line: underline;
+}
+
+#proximity p {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#squawkPage {
+  overflow: scroll;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#squawkPage h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-decoration-line: underline;
+}
+
+#squawkPage p {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#squawkPage p, li {
+  font-size: 20px;
+}
+
+#squawkPage ul {
+  margin-left: 20px;
+  list-style-type: circle;
+}
+
 
 /* DESKTOP VIEW */
 @media( min-width: 600px ) {
@@ -291,6 +348,40 @@ nav a {
   #squawkPage ul {
     margin-left: 20px;
     list-style-type: circle;
+  }
+
+  /* REGISTRATION PAGE - DESKTOP */
+
+  #regNumber {
+    overflow: scroll;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #regNumber h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-decoration-line: underline;
+  }
+
+  #regNumber p {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  #proximity {
+    overflow: scroll;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #proximity h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-decoration-line: underline;
+  }
+
+  #proximity p {
+    font-size: 20px;
+    margin: 10px;
   }
   
 }
