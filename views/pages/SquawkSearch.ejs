@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="/styles/styles.css" />
   <link rel="stylesheet" href="../../public/styles/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Audiowide|Ibarra+Real+Nova&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Ibarra+Real+Nova&display=swap" rel="stylesheet">
 
 </head>
 
@@ -23,21 +23,18 @@
     <%- include ('../partials/nav') %>
   </nav>
 
-  <main>
-    <h1>Squawk Search</h1>
-    <br>
-    <div>
-      <h2>Information About Squawks</h2>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Pellentesque id nibh tortor id aliquet lectus proin nibh. Feugiat scelerisque varius morbi enim
-        nunc faucibus. Est ante in nibh mauris cursus mattis molestie a iaculis. Maecenas sed enim ut sem viverra
-        aliquet. Nulla pharetra diam sit amet nisl. Lacus vestibulum sed arcu non odio euismod lacinia at. Eu augue ut
-        lectus arcu. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Sit amet dictum sit amet justo donec
-        enim diam vulputate.</p>
-    </div>
-    <br>
-    <br>
+  <main id="squawkPage">
+    <h2>Squawk Search</h2>
+
+    <p>Squawk codes are assigned by air traffic control to uniquely identify aircraft. These four digit codes can be
+      displayed on ground radars to help manage traffic in tight airspaces. Generally these codes just identify aircraft, but there are special codes to help air traffic controllers know about an aircraft's status as well.  List below are a few squawk codes you can
+      search to see what is out there!</p>
+    <ul>
+      <li>1200 - Unassigned/Anonymous Aircraft</li>
+      <li>7500 - Aircraft Hijacking</li>
+      <li>7600 - Radio Failure</li>
+      <li>7700 - In-flight Emergency</li>
+    </ul>
     <form action="/results" method="GET">
       <fieldset>
         <legend>Search by Squawk</legend>
