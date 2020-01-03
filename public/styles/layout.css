@@ -141,3 +141,49 @@ footer {
   }
 
 }
+
+/* dev team page */
+.devPics {
+  width: 100px;
+  height: 100px;
+}
+
+#devPage {
+  background-color: rgb(68, 70, 71);
+}
+
+.devList {
+  display: inline-block;
+  color: aliceblue;
+  margin-right: 100px;
+ margin-bottom: 10px;
+}
+
+#travis {
+  margin-right: 150px;
+}
+
+/* END dev team */
+
+/* regnumber search */
+
+.planeList {
+  display: inline-block;
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+#regNumber {
+  overflow: scroll;
+}
+
+#coolPlanes {
+  list-style-position:inside;
+    
+}
+
+#suggest {
+  padding-top: 10px;
+}
+
+/* regnumber search  */
