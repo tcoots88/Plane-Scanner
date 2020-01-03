@@ -127,6 +127,35 @@ nav a {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 250px;
+  padding: 2%;
+}
+
+#learnAboutTPMain {
+  overflow: scroll;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#learnAboutTPMain h2 {
+  font-size: 20px;
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+#learnAboutTPMain p, li {
+  padding: 5px;
+  font-size: 14px;
+}
+
+#learnAboutTPMain ul {
+  margin-left: 20px;
+  list-style-type: circle;
+}
+
+.aboutTPImages {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 500px;
   padding: 2%;
 }
@@ -175,12 +204,50 @@ nav a {
 
 
   /* ABOUT XPNDR PAGE - DESKTOP */
+  #learnAboutTPMain {
+    overflow: scroll;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #learnAboutTPMain h2 {
+    font-size: 30px;
+    text-align: center;
+    text-decoration-line: underline;
+  }
+
+  #learnAboutTPMain p, li {
+    font-size: 20px;
+  }
+
+  #learnAboutTPMain ul {
+    margin-left: 20px;
+    list-style-type: circle;
+  }
+
   .aboutTPImages {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 500px;
     padding: 2%;
+  }
+
+  /* INDEX PAGE - DESKTOP */
+  #indexMain { 
+    overflow: scroll;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
+
+  #indexMain h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-decoration-line: underline;
+  }
+
+  #indexMain p {
+    font-size: 20px;
+    margin: 10px;
   }
   
 }
