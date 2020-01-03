@@ -81,7 +81,7 @@ function saveAircraftToDatabase(request, response) {
     )`;
   // console.log('request.body isis', request.body.reg)
   client.query(instruction, [request.body.reg, request.body.type, request.body.sqk, request.body.lat, request.body.lon, request.body.alt]);
-  response.redirect('/favAircraftPage')
+  response.redirect('pages/favoriteAircraft')
 }
 
 
