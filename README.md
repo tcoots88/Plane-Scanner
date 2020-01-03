@@ -1,6 +1,6 @@
 # Plane-Scanner
 
-### Plane Scanner is an innovative tool for plane enthusiasts, those in the aeronautical field, or anyone interested in learning a bit more about the functionality of aircraft.  Those utilizing this tool will be able to see what aircraft are in their area and learn about air communications and emergency codes being posted.
+### Plane Scanner is an innovative tool for plane enthusiasts, those in the aeronautical field, or anyone interested in learning a bit more about the functionality of an aircraft.  Those utilizing this tool will be able to see what aircraft are in their area and learn about air communications and emergency codes being posted. These application is borne out of necessity. It helps users to know the aircrafts around them and how to act accordingly.
 
 
 ### SQL Information
@@ -33,3 +33,31 @@ This is the join table that emerged through the intersecton of two tables that h
 - Micah Thorstenson
 - Silas Oyewale
 - Travis Coots
+
+#### Prerequisites
+To run the plane scanner app, you need to install into your terminal 
+- ejs
+- node modules
+- packet.json 
+- express,
+- superagent
+- jquery
+- method-override
+- pg
+To install the above prerequities, use npm install.
+
+
+#### Running the plane scanner application
+To run the automated tests, you will need an API key from flightradar24 or any agency that can provide the necessary data about any aircraft flying in real time. This API key should be stored in a .env file to prevent public access to the key.
+
+#### Deployment
+This app is deployed and hosted by heroku. This is the heroku url https://git.heroku.com/plane-scanner-htms.git
+
+#### Built With
+This app was built with the jQuery library and a team of four engineers with a great attitude.
+
+#### License
+This project is licensed under the MIT license -see the LICENSE.md file for details. 
+
+#### Acknowledgements
+Hat off to our amiable 301 instructor, Nicholas, the supportive TAs- Josh1, Josh2, Chance and our users. 
