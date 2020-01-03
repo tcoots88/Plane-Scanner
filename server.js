@@ -5,8 +5,8 @@ const express = require('express');
 const methodoverride = require('method-override');
 
 // local dependencies
-const locationRequest = require('./public/modules/location');
-const aircraftRequest = require('./public/modules/aircraft');
+const locationRequest = require('./public/modules/location').handleLocationRequest;
+const aircraftRequest = require('./public/modules/aircraft').handleAircraftRequest;
 
 require('dotenv').config();
 const PORT = process.env.PORT;
@@ -27,8 +27,6 @@ client.connect();
 app.get('/', (req, res) => {
   res.render('./index');
 });
-
-
 
 // REG NUM route
 app.get('/regNumSearchPage', (req, res) => {
@@ -79,11 +77,10 @@ function saveAircraftToDatabase(request, response) {
   ) VALUES (
     $1, $2, $3, $4, $5, $6
     )`;
-  // console.log('request.body isis', request.body.reg)
+  
   client.query(instruction, [request.body.reg, request.body.type, request.body.sqk, request.body.lat, request.body.lon, request.body.alt]);
-  response.redirect('pages/favoriteAircraft')
+  response.redirect('/favAircraftPage')
 }
-
 
 function deleteAircraft(request, respond) {
   client.query('DELETE FROM aircrafts WHERE id=$1', [request.body.aircraftToDelete]).then(data => {
