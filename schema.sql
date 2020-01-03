@@ -4,10 +4,10 @@ CREATE TABLE aircrafts
     id SERIAL PRIMARY KEY,
     registration_number VARCHAR(255),
     aircraft_type VARCHAR(255),
-    squawk_code INTEGER,   
+    squawk_code INT,   
     latitude FLOAT(40),
     longitude FLOAT(40),
-    altitude SMALLINT
+    altitude INT
 );
 
 INSERT INTO aircrafts
